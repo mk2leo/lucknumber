@@ -74,8 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             currentNumberDisplay.textContent = newNumber;
             currentNumberDisplay.classList.remove("animating");
-            drawnNumbers.push(newNumber);
-            drawnNumbers.sort((a, b) => a - b); // 保持排序
+            drawnNumbers.push(newNumber); // 直接加入，不排序
             renderDrawnNumbers();
             isAnimating = false;
             updateProgressDisplay();
@@ -128,5 +127,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
