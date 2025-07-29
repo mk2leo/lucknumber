@@ -1,13 +1,57 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>幸運號碼抽獎</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>幸運號碼抽獎</h1>
+            <p>設定範圍，開始您的幸運抽獎！</p>
+        </div>
+
+        <div class="settings-card card">
+            <div class="setting-item">
+                <span class="icon">⚙️</span>
+                <label for="totalNumbers">號碼總數：</label>
+                <input type="number" id="totalNumbers" value="12" min="1" max="1000">
+            </div>
+            <button id="restartButton" class="button outline">
+                <span class="icon">🔄</span>
+                重新開始
+            </button>
+        </div>
+
+        <div class="current-number-card card">
+            <h2>當前幸運號碼</h2>
+            <div id="currentNumber" class="current-number">—</div>
+            <button id="generateButton" class="button primary">
+                <span class="icon">🔀</span>
+                下個幸運號碼
+            </button>
+        </div>
+
+        <div id="drawnNumbersCard" class="drawn-numbers-card card hidden">
+            <h3>已抽號碼 (<span id="drawnCount">0</span>/<span id="totalCount">0</span>)</h3>
+            <div id="drawnNumbersContainer" class="drawn-numbers-container">
+                <!-- 已抽號碼將在這裡動態生成 -->
+            </div>
+            <div id="completeMessage" class="complete-message hidden">
+                🎉 恭喜！所有號碼都已抽完！
+            </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+        <p class="progress-text">進度：<span id="progressDrawn">0</span> / <span id="progressTotal">0</span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
+
